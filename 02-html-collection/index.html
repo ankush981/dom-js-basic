@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Elements</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="section">
+            <p>Hello!</p>
+        </div>
+        <div class="section">
+            <p>Yeah, no CSS. Deal with it!</p>
+        </div>
+        <custom-tag></custom-tag>
+    </div>
+
+    <script>
+        // Method names with element"s" return an HTMLCollection
+        const elements = document.getElementsByClassName("section");
+        console.log(elements);
+        // This looks like an array, but isn't
+        console.log(Array.isArray(elements)); // false
+        // elements.map(e => console.log(e)); => error: elements.map is not a function!
+        const elementsArray = Array.from(elements);
+        console.log(Array.isArray(elementsArray)); // true
+        elementsArray.forEach(e => console.log(e)); // works!
+    </script>
+</body>
+
+</html>
