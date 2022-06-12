@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Elements</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="section">
+            <p>Hello!</p>
+        </div>
+        <div class="section">
+            <p>Yeah, no CSS. Deal with it!</p>
+        </div>
+        <custom-tag></custom-tag>
+    </div>
+
+    <script>
+        // We can select element by their ID
+        console.log(document.getElementById("wrapper"));
+        // Or by their class name
+        console.log(document.getElementsByClassName("section")); // returns an HTMLCollection
+        // Or by the HTML tag itself
+        console.log(document.getElementsByTagName("p"));
+        console.log(document.getElementsByTagName("custom-tag")); // works with non-standard tags, too!
+    </script>
+</body>
+
+</html>
