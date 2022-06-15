@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Elements</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="section">
+            <p>Hello!</p>
+        </div>
+        <div class="section">
+            <p>Yeah, no CSS. Deal with it!</p>
+        </div>
+        <custom-tag></custom-tag>
+    </div>
+
+    <script>
+        // First, let's show the text from all the <p> elements
+        const paragraphs = document.querySelectorAll(".section p");
+        // can directly apply forEach since querySelectorAll() returns a NodeList
+        paragraphs.forEach(p => console.log(p.textContent));
+        // now, let's change the text content!
+        paragraphs.forEach(p => p.textContent = "Wut?!"); // check the browser page!
+        // and now, let's append some text
+        paragraphs.forEach(p => p.textContent += " Is it true?!");
+
+        // And finally, let's change the actual HTML
+        document.querySelector(".section:first-child").innerHTML = "<h2>Yo</h2>";
+        document.querySelector(".section:first-child").innerHTML += "<h3>Nice, no?!</h3>";
+    </script>
+</body>
+
+</html>
