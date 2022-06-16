@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Elements</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="section">
+            <p>Hello!</p>
+        </div>
+        <div class="section">
+            <p>Yeah, no CSS. Deal with it!</p>
+        </div>
+        <custom-tag></custom-tag>
+    </div>
+
+    <script>
+        // Everything is a node: the element, the attribute, the plain text you see, the comment, and so on.
+        const wrapper = document.querySelector("#wrapper");
+        // Let's check this node's type
+        console.log(wrapper.nodeType); // 1 => Element, you can find the full list easily
+        // Now let's see its name
+        console.log(wrapper.nodeName); // DIV
+        // does this node have child nodes?
+        console.log(wrapper.hasChildNodes()); // true
+
+        // It's also possible to close nodes
+        const clonedWrapper = wrapper.cloneNode(true); // true == clone the subtree as well
+        console.log(clonedWrapper);
+
+    </script>
+</body>
+
+</html>
