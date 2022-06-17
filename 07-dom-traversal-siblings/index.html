@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Elements</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="section">
+            <p>Hello!</p>
+        </div>
+        <div class="section">
+            <p>Yeah, no CSS. Deal with it!</p>
+        </div>
+        <custom-tag></custom-tag>
+    </div>
+
+    <script>
+        // the first <section>
+        const section1 = document.querySelector(".section");
+        // let's show its sibling
+        console.log(section1.nextSibling); // returns a text node since there's a linebreak in our source
+        console.log(section1.nextElementSibling); // returns div.section (yay!)
+
+        // Similarly, there's previousSibling and previousElementSibling
+    </script>
+</body>
+
+</html>
