@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Elements</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h2>Events Demo</h2>
+        <div class="section">
+            <h3>Click Me</h3>
+            <h4>And watch me disappear!</h4>
+        </div>
+
+        <div class="list">
+            <ul>
+                <li>Click me to delete me!</li>
+                <li>Click me to delete me!</li>
+                <li>Click me to delete me!</li>
+                <li>Click me to delete me!</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // let's add a click listener to the <h2> element
+        document.querySelector("h2").addEventListener("click", e => {
+            console.log("Why you click the <h2> tag, of all things?!");
+            console.log(e); // PointerEvent, and more details
+            console.log(e.target); // the <h2> element!
+        });
+
+        // when we click the <h3>, remove the <h4>
+        document.querySelector("h3").addEventListener("click", e => {
+            e.target.parentElement.removeChild(document.querySelector("h4"));
+        });
+
+        // delete the <li> that was clicked
+        document.querySelectorAll("li").forEach(li => li.addEventListener("click", e => e.target.parentElement.removeChild(e.target)));
+    </script>
+</body>
+
+</html>
