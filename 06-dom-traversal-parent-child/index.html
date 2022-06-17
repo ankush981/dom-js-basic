@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Elements</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="section">
+            <p>Hello!</p>
+        </div>
+        <div class="section">
+            <p>Yeah, no CSS. Deal with it!</p>
+        </div>
+        <custom-tag></custom-tag>
+    </div>
+
+    <script>
+        const wrapper = document.querySelector("#wrapper");
+        // let's find the parent
+        console.log(wrapper.parentNode); // <body>
+        console.log(wrapper.parentElement); // use this to get only the HTML elements, and not all types of nodes (comments, text, etc.). Generally, this is preferred.
+        console.log(wrapper.childNodes);
+        console.log(wrapper.children); // same difference as in the parent nodes selection, except that the naming is incosistent. This returns the HTML element nodes.
+    </script>
+</body>
+
+</html>
