@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Elements</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h2>Events Demo</h2>
+        <div class="section">
+            <h3>Event Bubbling!</h3>
+        </div>
+
+        <div>
+            <ul>
+                <li>Item 1 (click)</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Click listener for the first li
+        document.querySelector("li").addEventListener("click", () => console.log("li clicked!"));
+        // Click listener for the #wrapper all the way up!
+        document.querySelector("#wrapper").addEventListener("click", () => console.log("#wrapper clicked!")); // this gets logged as well!
+        document.querySelector("body").addEventListener("click", () => console.log("body clicked!")); // even the body tag!!
+
+        // Not all events bubble up. For example, events related to focus().
+
+        // That said, attaching an event listener too all the children presents two problems:
+        // 1) There's too much for JS to handle (inefficiency)
+        // 2) We'll need to remember to add the event listner to each new child added
+        // Thus, it's much better to listen on a parent element and delete by using
+        // the event.target value
+        const ul = document.querySelector("ul");
+        ul.addEventListener("click", e => {
+            ul.removeChild(e.target);
+        });
+    </script>
+</body>
+
+</html>
