@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Elements</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="section">
+            <p>Hello!</p>
+        </div>
+
+        <div class="section">
+            <p>Yeah, no CSS. Deal with it!</p>
+        </div>
+
+        <div class="section">
+            <ul class="class1">
+                <li>A humble list element</li>
+                <li>A humble list element</li>
+            </ul>
+            <button id="list-adder">Click me to make the list longer!</button>
+        </div>
+    </div>
+
+    <script>
+        // When the button is clicked, add another <li>
+        document.querySelector("#list-adder").addEventListener("click", () => {
+            const li = document.createElement("li");
+            li.textContent = "A humble list element";
+            // let's also do some CSS!
+            li.style.color = "blue";
+            li.style.marginLeft = "10px";
+            document.querySelector("ul").appendChild(li);
+        });
+
+        // And some class manipulation
+        const ul = document.querySelector("ul");
+        console.log(ul.classList); // DOMTokenList type
+        ul.classList.add("class2");
+        ul.classList.remove("class1");
+        console.log(ul.classList); // only class2
+    </script>
+</body>
+
+</html>
